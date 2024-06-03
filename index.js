@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+import routes from './Src/Routes/notification.routes.js';
 
 dotenv.config();
 
@@ -18,8 +19,10 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Hello World 3!');
 });
+
+app.use('/v1', routes);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
